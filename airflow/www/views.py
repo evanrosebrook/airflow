@@ -1974,7 +1974,7 @@ class Airflow(AirflowBaseView):
             response = self.render_template(
                 'airflow/confirm.html',
                 endpoint=None,
-                message="Here's the list of task instances you are about to clear:",
+                message="Task instances you are about to clear:",
                 details=details,
             )
 
@@ -2389,7 +2389,7 @@ class Airflow(AirflowBaseView):
         response = self.render_template(
             "airflow/confirm.html",
             endpoint=url_for(f'Airflow.{state}'),
-            message=f"Here's the list of task instances you are about to mark as {state}:",
+            message=f"Task instances you are about to mark as {state}:",
             details=details,
         )
 
