@@ -2037,10 +2037,9 @@ class Airflow(AirflowBaseView):
             start_date,
             end_date,
             origin,
-            request,
-            recursive,
-            confirmed,
-            only_failed,
+            recursive=recursive,
+            confirmed=confirmed,
+            only_failed=only_failed,
         )
 
     @expose('/dagrun_clear', methods=['POST'])
@@ -2063,7 +2062,12 @@ class Airflow(AirflowBaseView):
         end_date = dr.logical_date
 
         return self._clear_dag_tis(
-            dag, start_date, end_date, recursive=True, confirmed=confirmed, request=request, origin=None
+            dag,
+            start_date,
+            end_date,
+            origin=None,
+            recursive=True,
+            confirmed=confirmed,
         )
 
     @expose('/blocked', methods=['POST'])
